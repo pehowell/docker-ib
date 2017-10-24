@@ -1,5 +1,5 @@
 FROM pehowell/arch-dumbinit
-LABEL maintainer="Paul Howell <paul.howell@gmail.com>"
+LABEL maintainer="Paul Howell <paul.howell+docker@gmail.com>"
 
 ENV TERM xterm
 
