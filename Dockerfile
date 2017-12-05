@@ -20,7 +20,8 @@ RUN set -euxo pipefail && \
     chown -R ib:ib /home/ib && \
     chmod +x /home/ib/start.sh && \
     sed -i 's/^# \(.*\)NOPASSWD\(.*\)$/\1NOPASSWD\2/' /etc/sudoers && \
-    sudo -u ib yaourt -S --noconfirm --nocolor ib-tws ib-controller localepurge && \
+    sudo -u ib yaourt -S --noconfirm --nocolor --m-arg "--skipchecksums" ib-tws && \
+    sudo -u ib yaourt -S --noconfirm --nocolor ib-controller localepurge && \
     localepurge && \
     pacman -Runs --noconfirm $(pacman -Qtdq) && \
     pacman -Rdd --noconfirm gtk2 guile icu llvm-libs mesa perl systemd ttf-dejavu xorg-fonts-misc wayland ${TEMP_PKG} && \
