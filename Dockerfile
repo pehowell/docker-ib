@@ -10,8 +10,8 @@ COPY start.sh /home/ib/start.sh
 COPY jts.ini /home/ib/jts.ini
 
 RUN pacman -Syu --noconfirm ${TEMP_PKG} ${NEEDED_PKG} && \
-    groupadd wheel && \
-    groupadd users && \
+    groupadd -f wheel && \
+    groupadd -f users && \
     useradd -G wheel -m ib && \
     chown -R ib:ib /home/ib && \
     chmod +x /home/ib/start.sh && \
